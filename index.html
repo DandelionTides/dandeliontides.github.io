@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dandelion Tides — 一个关于学习、创造与成长的个人角落。">
+  <meta name="theme-color" content="#f5f4ed">
+  <title>Dandelion Tides · Personal Space</title>
+
+  <style>
+    /* 第一版只用 HTML + CSS。修改这里的颜色即可快速换主题。 */
+    :root {
+      --bg: #f5f4ed;
+      --ink: #263b35;
+      --muted: #61716b;
+      --accent: #416c58;
+      --line: #d9ded5;
+      --card: #ffffffb8;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.75;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    .container { width: min(1080px, calc(100% - 44px)); margin-inline: auto; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 94px;
+      border-bottom: 1px solid var(--line);
+      gap: 24px;
+    }
+
+    .brand { font-family: Georgia, serif; font-size: 22px; font-weight: bold; }
+    .brand span { color: var(--accent); }
+    nav { display: flex; gap: 25px; font-size: 14px; color: var(--muted); }
+    nav a:hover, .text-link:hover { color: var(--accent); }
+
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: 555px;
+      align-items: center;
+      padding: 88px 0 100px;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 9%;
+      right: 0;
+      width: min(420px, 48vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 42% 35%, #fcfbf1 0 9%, transparent 10%),
+        radial-gradient(circle at 48% 50%, #e8eddd 0 37%, #d3dfd1 38% 54%, #e9ece0 55% 72%);
+      box-shadow: 0 28px 95px #839f8a29;
+      opacity: .92;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: .24em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 720px;
+      margin: 20px 0;
+      font-family: Georgia, "Songti SC", "STSong", serif;
+      font-size: clamp(54px, 8vw, 95px);
+      line-height: 1.13;
+      letter-spacing: -.045em;
+      font-weight: 500;
+    }
+
+    h1 em { font-style: italic; color: var(--accent); }
+    .hero-desc { max-width: 560px; font-size: 18px; color: var(--muted); }
+    .buttons { display: flex; align-items: center; gap: 23px; flex-wrap: wrap; margin-top: 37px; }
+
+    .button {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      font-size: 14px;
+      transition: transform .2s, background .2s;
+    }
+    .button:hover { transform: translateY(-2px); background: var(--accent); }
+    .text-link { font-size: 14px; font-weight: 600; }
+
+    .section { padding: 72px 0; border-top: 1px solid var(--line); }
+    .section-head { margin-bottom: 28px; }
+    h2 {
+      margin: 8px 0 0;
+      font-family: Georgia, "Songti SC", serif;
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.3;
+      font-weight: 500;
+    }
+    .about-text { max-width: 760px; color: var(--muted); font-size: 17px; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card {
+      min-height: 195px;
+      padding: 25px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 15px;
+    }
+    .card .number { font-family: Georgia, serif; color: var(--accent); font-size: 14px; }
+    h3 { margin: 19px 0 6px; font-size: 18px; font-weight: 600; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .note { color: var(--muted); }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 105px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      header { min-height: 78px; flex-wrap: wrap; padding: 14px 0; }
+      .brand { font-size: 20px; }
+      nav { gap: 16px; font-size: 12px; }
+      .hero { min-height: 490px; padding: 68px 0 76px; }
+      .hero::before { width: 240px; top: 14%; right: -125px; opacity: .48; }
+      .hero-desc { font-size: 16px; }
+      .section { padding: 55px 0; }
+      .cards { grid-template-columns: 1fr; }
+      .card { min-height: 140px; }
+      footer { flex-direction: column; align-items: flex-start; justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="#home">dandelion<span>tides</span>.</a>
+      <nav aria-label="网站导航">
+        <a href="#about">关于</a>
+        <a href="#now">现在</a>
+        <a href="#roadmap">未来计划</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div>
+          <div class="eyebrow">A little corner of the internet · v0.1</div>
+          <h1 id="hero-title">Hello,<br><em>world.</em></h1>
+          <p class="hero-desc">
+            你好，欢迎来到 Dandelion Tides。<br>
+            这里是我用代码一点点搭建的个人空间，记录学习、创造与成长。
+          </p>
+          <div class="buttons">
+            <a class="button" href="#about">认识一下我 →</a>
+            <a class="text-link" href="#roadmap">看看接下来做什么 ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-head">
+          <div class="eyebrow">01 / About</div>
+          <h2>你好，很高兴你来到这里。</h2>
+        </div>
+        <!-- 以后可以把下面这段换成你的姓名、学校或个人介绍 -->
+        <p class="about-text">
+          我是一名计算机系学生，喜欢探索技术，也希望拥有一个真正属于自己的互联网角落。
+          现在，这个网站还是非常简单的第一版。我会在学习新知识的同时持续更新它。
+        </p>
+      </section>
+
+      <section class="section" id="now">
+        <div class="section-head">
+          <div class="eyebrow">02 / Right Now</div>
+          <h2>正在发生的事</h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="number">01</span>
+            <h3>学习 Web 开发</h3>
+            <p>从 HTML、CSS 开始，逐渐理解浏览器里的世界。</p>
+          </article>
+          <article class="card">
+            <span class="number">02</span>
+            <h3>搭建个人空间</h3>
+            <p>使用 GitHub Pages，让想法真正出现在互联网上。</p>
+          </article>
+          <article class="card">
+            <span class="number">03</span>
+            <h3>保持好奇</h3>
+            <p>尝试一些小项目，把学到的东西变成作品。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="roadmap">
+        <div class="section-head">
+          <div class="eyebrow">03 / Roadmap</div>
+          <h2>慢慢来，持续生长。</h2>
+        </div>
+        <p class="about-text">
+          第一阶段：让网站稳定上线。<br>
+          第二阶段：加入项目展示和自己的 GitHub 主页。<br>
+          第三阶段：等准备好了，再尝试博客、交互动画和新的技术栈。
+        </p>
+        <p class="note">The best projects grow one commit at a time.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 Dandelion Tides</span>
+      <span>Made with curiosity, HTML & CSS.</span>
+    </footer>
+  </div>
+</body>
+</html>
