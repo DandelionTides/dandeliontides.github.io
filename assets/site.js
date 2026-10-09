@@ -14,7 +14,9 @@ const ideas = [
   "Hello world. Hello future.",
   "其实大部分轮换内容是ai写的哦？但这句不是ovo",
   "大模型越狱（×）让ai更听话（√）",
-  "其实并没想好要往idea里写什么？"
+  "其实并没想好要往idea里写什么？",
+  "有人在晚上数星星",
+  "一颗圆滚滚的橘子🍊"
 ];
 const ideaButton = document.getElementById("idea-button");
 ideaButton?.addEventListener("click", () => {
@@ -53,3 +55,18 @@ apiButton?.addEventListener("click", async () => {
     apiButton.disabled = false;
   }
 });
+
+
+/*
+ * Optional homepage background photo.
+ * 1) Place your image in assets/images/, e.g. assets/images/my-background.jpg
+ * 2) Replace "" with "assets/images/my-background.jpg" below.
+ * 3) Save, commit and push — no server needed.
+ * Leave this empty to retain the original soft green illustration.
+ */
+const HERO_BACKGROUND = "assets/images/my-background.jpg";
+const homeHero = document.querySelector(".hero");
+if (homeHero && HERO_BACKGROUND) {
+  homeHero.style.setProperty("--hero-photo", `url("${HERO_BACKGROUND}")`);
+  homeHero.classList.add("hero--photo");
+}

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5ef">
+  <meta name="description" content="Dandelion Tides 的画廊：值得收藏的游戏、旅行与日常瞬间。">
+  <title>Gallery · Dandelion Tides</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="./">dandelion<span>tides</span>.</a>
+      <nav aria-label="主导航">
+        <a href="./">← 首页</a>
+        <a href="lab.html">实验室 ↗</a>
+        <a href="gallery.html" aria-current="page">画廊</a>
+        <button class="theme" id="theme-toggle" type="button">◐ 主题</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="gallery-hero">
+        <div class="eyebrow">COLLECTION / 001</div>
+        <h1>Little things<br><em>worth keeping.</em></h1>
+        <p class="lead">画廊：或许会挑选一些比较喜欢的图片挂上去？</p>
+        <p class="gallery-instruction">点击照片放大 · 手机左右滑动 · 键盘方向键切换 · Esc 退出</p>
+      </section>
+
+      <!-- 添加新照片：复制下面的 figure，换缩略图 src、完整图片 data-full、标题和描述。 -->
+      <section class="gallery-grid" aria-label="照片收藏">
+
+        <figure class="gallery-card gallery-card--featured">
+          <button class="gallery-trigger" type="button"
+                  data-full="assets/images/gallery/game-moment.webp"
+                  aria-label="放大查看游戏瞬间 001">
+            <img src="assets/images/gallery/game-moment-thumb.webp"
+                 alt="好吧，这是一张测试画廊用的图片"
+                 width="1050" height="592" loading="lazy" decoding="async">
+            <span class="gallery-zoom" aria-hidden="true">↗ 查看大图</span>
+          </button>
+          <figcaption class="gallery-caption">
+            <div>
+              <span class="gallery-kicker">GAME / 001</span>
+              <h2 class="photo-title">杀戮尖塔 · 001</h2>
+              <p class="photo-description">非常轮椅的易伤卡组（？）游戏是《杀戮尖塔2》（Slay the Spire 2）。</p>
+            </div>
+            <span class="gallery-count">01</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-card gallery-card--featured">
+          <button class="gallery-trigger" type="button"
+                  data-full="assets/images/gallery/best-picture.webp"
+                  aria-label="最最最喜欢的一张画 001">
+            <img src="assets/images/gallery/best-picture.webp"
+                 alt="出自一位非常可爱的姐姐之手"
+                 width="1050" height="592" loading="lazy" decoding="async">
+            <span class="gallery-zoom" aria-hidden="true">↗ 查看大图</span>
+          </button>
+          <figcaption class="gallery-caption">
+            <div>
+              <span class="gallery-kicker">LIFE / 001</span>
+              <h2 class="photo-title">最最最喜欢的一张画 · 001</h2>
+              <p class="photo-description">ta已经当我的聊天背景1000天以上了哦？</p>
+            </div>
+            <span class="gallery-count">02</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-card gallery-card--featured">
+          <button class="gallery-trigger" type="button"
+                  data-full="assets/images/gallery/orange.webp"
+                  aria-label="这是什么呢？ 002">
+            <img src="assets/images/gallery/orange.webp"
+                 alt="出自另一位画师姐姐之手"
+                 width="1050" height="592" loading="lazy" decoding="async">
+            <span class="gallery-zoom" aria-hidden="true">↗ 查看大图</span>
+          </button>
+          <figcaption class="gallery-caption">
+            <div>
+              <span class="gallery-kicker">LIFE / 002</span>
+              <h2 class="photo-title">关于画面中出现的小人 · 002</h2>
+              <p class="photo-description">是养的oc（original character），目前还在设计中</p>
+            </div>
+            <span class="gallery-count">03</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-card gallery-card--featured">
+          <button class="gallery-trigger" type="button"
+                  data-full="assets/images/gallery/cute-girl.webp"
+                  aria-label="光标娘 003">
+            <img src="assets/images/gallery/cute-girl.webp"
+                 alt="纯粹的ai产物"
+                 width="1050" height="592" loading="lazy" decoding="async">
+            <span class="gallery-zoom" aria-hidden="true">↗ 查看大图</span>
+          </button>
+          <figcaption class="gallery-caption">
+            <div>
+              <span class="gallery-kicker">LIFE / 003</span>
+              <h2 class="photo-title">光标娘 · 003</h2>
+              <p class="photo-description">尝试为社团设计看板娘，并制作一套指针皮肤</p>
+            </div>
+            <span class="gallery-count">04</span>
+          </figcaption>
+        </figure>
+
+      </section>
+
+      <section class="gallery-ending" aria-label="画廊说明">
+        <span class="gallery-ending__symbol" aria-hidden="true">✳</span>
+        <p>More little moments to come.</p>
+        <span>这个画廊会随着新的收藏慢慢长大。</span>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 Dandelion Tides</span>
+      <span><a href="./">Back to home ↗</a></span>
+    </footer>
+  </div>
+
+  <!-- 用原生 dialog 实现，自动支持焦点限制及 Esc 关闭。 -->
+  <dialog class="lightbox" id="gallery-lightbox" aria-label="照片放大预览" aria-describedby="lightbox-caption">
+    <div class="lightbox__body">
+      <div class="lightbox__top">
+        <span class="lightbox__counter" id="lightbox-counter">1 / 1</span>
+        <button class="lightbox__close" id="lightbox-close" type="button" aria-label="关闭照片预览">关闭 <span aria-hidden="true">✕</span></button>
+      </div>
+      <div class="lightbox__stage" id="lightbox-stage">
+        <button class="lightbox__arrow lightbox__arrow--prev" id="lightbox-prev" type="button" aria-label="上一张照片">‹</button>
+        <img id="lightbox-image" alt="" draggable="false">
+        <button class="lightbox__arrow lightbox__arrow--next" id="lightbox-next" type="button" aria-label="下一张照片">›</button>
+      </div>
+      <div class="lightbox__bottom" id="lightbox-caption">
+        <strong id="lightbox-title"></strong>
+        <span id="lightbox-description"></span>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="assets/site.js" defer></script>
+  <script src="assets/gallery.js" defer></script>
+</body>
+</html>
